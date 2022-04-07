@@ -80,8 +80,6 @@ def crypte_file():
     minn = min(compiled[0])
     for k in range(1, len(compiled)):
         try:
-            print(compiled[k])
-            print(min(compiled[k]))
             if(minn > min(compiled[k])):
                 minn = min(compiled[k])
         except: pass
@@ -118,11 +116,13 @@ def crypte_file():
         else:
             print("Impossible d'enregistrer le fichier !")
             return final_string
+        
+    if('coder' in os.listdir()): os.mkdir('coder')
     
-    with open(file_name + '.crypte', 'a', encoding='UTF-8') as file:
+    with open('coder/' + file_name + '.crypte', 'a', encoding='UTF-8') as file:
         file.write(final_string)
         
-    print('Fichier de sortie: ' + file_name + '.crypte')
+    print('Fichier de sortie: ' + file_name + '.lxf')
 
 def start():
     choix = ''
