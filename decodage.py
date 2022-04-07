@@ -66,7 +66,7 @@ def read_file(file_name: str):
     return final
 
 def decode_file():
-    file_name = input("Merci d'entrer le bom du fichier a decodé: ")
+    file_name = input("Merci d'entrer la direction du fichier ou son nom a decodé: ")
     base = 16
     while True:
         try:

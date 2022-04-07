@@ -67,7 +67,7 @@ def write_file(file_name: str, to_write: list):
     return True
 
 def crypte_file():
-    file_name = input("Merci de spécifier le nom du fichier: ")
+    file_name = input("Merci de spécifier la direction du fichier ou son nom: ")
     
     compiled = []
     for elt in read_file(file_name):
@@ -88,7 +88,7 @@ def crypte_file():
     while True:
         try:
             nbr = int(input("Combien voulez-vous de décalage (minimum " + str(100 - minn) + "): "))
-            if(nbr < minn): print("Meric de mettre un nombre plus grand que", minn)
+            if(nbr < minn): print("Merci de mettre un nombre plus grand que", minn)
             else: break
         except: pass
         
@@ -117,12 +117,12 @@ def crypte_file():
             print("Impossible d'enregistrer le fichier !")
             return final_string
         
-    if('coder' in os.listdir()): os.mkdir('coder')
+    if('coder' not in os.listdir()): os.mkdir('coder')
     
     with open('coder/' + file_name + '.crypte', 'a', encoding='UTF-8') as file:
         file.write(final_string)
         
-    print('Fichier de sortie: ' + file_name + '.lxf')
+    print('Fichier de sortie: ' + file_name + '.crypte')
 
 def start():
     choix = ''
