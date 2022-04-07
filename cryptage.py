@@ -119,9 +119,12 @@ def crypte_file():
         
     print('Fichier de sortie: ' + file_name + '.crypte')
 
-if __name__ == "__main__":
+def start():
     choix = ''
     while choix != 'phrase' and choix != 'fichier':
         choix = input("Que voulez-vous crypter (phrase ou fichier)? ").lower()
     if(choix == 'phrase'): print(crypte())
     else: crypte_file()
+
+if __name__ == "__main__":
+    start()

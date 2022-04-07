@@ -105,9 +105,12 @@ def decode_file():
         
     print("Décryptage effectué !\nFichier généré avec succés dans le dossier *decoder*!")
 
-if __name__ == '__main__':
+def start():
     choix = ''
     while choix != 'phrase' and choix != 'fichier':
         choix = input("Que voulez-vous décoder (phrase ou fichier)? ")
     if(choix == 'phrase'): decode()
     else: decode_file
+
+if __name__ == '__main__':
+    start()
