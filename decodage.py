@@ -23,8 +23,7 @@ def delete_crypte(liste: list, nbr: int) -> list:
 def decompile(liste: list) -> str:
     string = ''
     for elt in liste:
-        if(elt == 200): string += " "
-        else: string += chr(elt)
+        string += chr(elt)
     return string
 
 def formate(string: str, base: int):

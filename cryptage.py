@@ -6,8 +6,7 @@ import os
 def compile_str(string: str) -> list:
     final = []
     for elt in string:
-        if(elt == " "): final.append(200)
-        else: final.append(ord(elt))
+        final.append(ord(elt))
     return final
 
 def adding_decal(liste: list, nbr: int) -> list:

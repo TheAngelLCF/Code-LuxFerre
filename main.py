@@ -1,7 +1,7 @@
 # Code LuxFerre | Main File
 # Made by TheAngelLCF
 # Logiciel propriétaire gratuit
-import os, cryptage, decodage
+import cryptage, decodage
 
 if __name__ == "__main__":
     print("Merci d'utiliser le code LuxFerre par TheAngelLCF !")
