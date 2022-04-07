@@ -30,5 +30,5 @@ Pour démarrer les fichiers, vous avez juste a demarrer le fichier correspondant
     
 ## Autheur
 
-- [@katherinepeterson](https://github.com/TheAngelLCF)
+- [@TheAngelLCF](https://github.com/TheAngelLCF)
 
