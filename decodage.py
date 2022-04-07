@@ -1,4 +1,6 @@
 # Code LuxFerre | Decodage
+# Make by TheAngelLCF
+# Logiciel propriétaire gratuit
 import os
 
 def separation(string: str) -> list:
@@ -26,7 +28,11 @@ def decompile(liste: list) -> str:
     return string
 
 def formate(string: str, base: int):
-    final = int(string, base)
+    try:
+        final = int(string, base)
+    except:
+        input("La base renseigner n'est pas la bonne !")
+        exit()
     return str(final)
 
 def decode():
@@ -90,9 +96,18 @@ def decode_file():
     
     fichier_sorti = input("Merci de préciser le fichier de sortie ici (attention, si un fichier existe alors il sera remplacé): ")
     
-    if(fichier_sorti in os.listdir()): os.remove(fichier_sortie)
+    if(fichier_sorti in os.listdir()): os.remove(fichier_sorti)
     
-    with open(fichier_sorti, 'a', encoding='UTF-8') as file:
+    if('decoder' not in os.listdir()): os.mkdir('decoder')
+
+    with open('decoder' + fichier_sorti, 'a', encoding='UTF-8') as file:
         file.write(final_string)
         
-    print("Décryptage effectué !\nFichier généré avec succés !")
+    print("Décryptage effectué !\nFichier généré avec succés dans le dossier *decoder*!")
+
+if __name__ == '__main__':
+    choix = ''
+    while choix != 'phrase' and choix != 'fichier':
+        choix = input("Que voulez-vous décoder (phrase ou fichier)? ")
+    if(choix == 'phrase'): decode()
+    else: decode_file

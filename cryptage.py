@@ -1,4 +1,6 @@
 # Code LuxFerre | Cryptage
+# Make by TheAngelLCF
+# Logiciel propriétaire gratuit
 import os
 
 def compile_str(string: str) -> list:
@@ -36,7 +38,9 @@ def crypte():
         string += str(elt)
     
     string = str(liste_code[0](int(string)))[2:]
-    print("Base utilisé", str(liste_code[0]))
+    if(type(liste_code[0]) == type(hex)): base = 16
+    else: base = 8
+    print("Base utilisé", base)
     print("Voici le cryptage:")
         
     return string
@@ -114,3 +118,10 @@ def crypte_file():
         file.write(final_string)
         
     print('Fichier de sortie: ' + file_name + '.crypte')
+
+if __name__ == "__main__":
+    choix = ''
+    while choix != 'phrase' and choix != 'fichier':
+        choix = input("Que voulez-vous crypter (phrase ou fichier)? ").lower()
+    if(choix == 'phrase'): print(crypte())
+    else: crypte_file()
