@@ -37,7 +37,7 @@ def crypte():
         string += str(elt)
     
     string = str(liste_code[0](int(string)))[2:]
-    if(type(liste_code[0]) == type(hex)): base = 16
+    if(liste_code[0] == hex): base = 16
     else: base = 8
     print("Base utilisé", base)
     print("Voici le cryptage:")
