@@ -66,7 +66,7 @@ def read_file(file_name: str):
     return final
 
 def decode_file():
-    file_name = input("Merci d'entrer le code a decodé: ")
+    file_name = input("Merci d'entrer le bom du fichier a decodé: ")
     base = 16
     while True:
         try:
@@ -99,7 +99,7 @@ def decode_file():
     
     if('decoder' not in os.listdir()): os.mkdir('decoder')
 
-    with open('decoder' + fichier_sorti, 'a', encoding='UTF-8') as file:
+    with open('decoder/' + fichier_sorti, 'a', encoding='UTF-8') as file:
         file.write(final_string)
         
     print("Décryptage effectué !\nFichier généré avec succés dans le dossier *decoder*!")
@@ -109,7 +109,7 @@ def start():
     while choix != 'phrase' and choix != 'fichier':
         choix = input("Que voulez-vous décoder (phrase ou fichier)? ")
     if(choix == 'phrase'): decode()
-    else: decode_file
+    else: decode_file()
 
 if __name__ == '__main__':
     start()

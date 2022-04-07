@@ -44,8 +44,8 @@ def crypte():
         
     return string
 
-def read_file(file_name: str, directory='./') -> list:
-    with open(directory + file_name, 'r', encoding='UTF-8') as file:
+def read_file(file_name: str) -> list:
+    with open(file_name, 'r', encoding='UTF-8') as file:
         liste = file.readlines()
     
     final = []
@@ -55,11 +55,11 @@ def read_file(file_name: str, directory='./') -> list:
     
     return final
 
-def write_file(file_name: str, to_write: list, directory='./'):
+def write_file(file_name: str, to_write: list):
     import os
-    if(file_name in os.listdir(directory)): os.remove(directory + file_name)
+    if(file_name in os.listdir()): os.remove(file_name)
     
-    with open(directory + file_name, 'a', encoding='UTF-8') as file:
+    with open(file_name, 'a', encoding='UTF-8') as file:
         for k in range(len(to_write) - 1):
             file.write(to_write[k] + '\n')
         file.write(to_write[-1])
@@ -71,19 +71,25 @@ def crypte_file():
     
     compiled = []
     for elt in read_file(file_name):
-        compiled.append(compile_str(elt))
+        x = compile_str(elt)
+        if(x == []): x = [ord(" ")]
+        compiled.append(x)
         
     # Recherche du min
     
     minn = min(compiled[0])
     for k in range(1, len(compiled)):
-        if(minn > min(compiled[k])):
-            minn = min(compiled[k])
+        try:
+            print(compiled[k])
+            print(min(compiled[k]))
+            if(minn > min(compiled[k])):
+                minn = min(compiled[k])
+        except: pass
            
     
     while True:
         try:
-            nbr = int(input("Combien voulez-vous de décalage (minimum " + str(minn) + "): "))
+            nbr = int(input("Combien voulez-vous de décalage (minimum " + str(100 - minn) + "): "))
             if(nbr < minn): print("Meric de mettre un nombre plus grand que", minn)
             else: break
         except: pass
