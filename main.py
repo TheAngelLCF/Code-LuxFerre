@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     choix = ''
     while choix != 'codage' and choix != 'decodage':
-        choix = input("Que voulez-vous faire (codage ou decoddage)? ")
+        choix = input("Que voulez-vous faire (codage ou decodage)? ")
     
     if(choix == 'codage'):
         print('\n' * 100)
